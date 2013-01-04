@@ -13,3 +13,4 @@ if(!defined('__DALALSTREET__')) {
  * Concept	: Stock
  */
 
+initFBApi();

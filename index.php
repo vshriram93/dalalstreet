@@ -50,6 +50,7 @@ require_once($sourceFolder."/graph.lib.php");
 require_once($sourceFolder."/authenticate.lib.php");
 require_once($sourceFolder."/parser.lib.php");
 require_once($sourceFolder."/template.lib.php");
+require_once($sourceFolder."/fbapi.lib.php");
 
 /// parses the server address with actions
 parseAddress();
