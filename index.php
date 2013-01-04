@@ -13,6 +13,9 @@ define("__DALALSTREET__", "DALAL STREET");
 /// Location of source folder
 $sourceFolder = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'))."/core";
 
+/// Location of Script folder for front end purpose
+$scriptFolder = substr($_SERVER['SCRIPT_NAME'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/'))."/core";
+
 /// If config file is not defined then code will  stop executing
 $config = @include_once($sourceFolder."/config.inc.php");
 
@@ -21,6 +24,19 @@ if($config !== "DALAL IS READY") {
 	//  If config does not exist or not configured.
 	exit(0);
 }
+
+/// This will be content of questions or login page.
+$CONTENT = "";
+
+/// ERROR STRING , WARNING STRING AND INFORMATION STRING
+$WARNINGSTRING = "";
+$INFOSTRING = "";
+$ERRORSTRING = "";
+
+/// define FOOTER AND HEADER
+$HEADER = "";
+$FOOTER = "";
+
 
 /// Contains functions which are common to many tasks and very frequently used.
 require_once($sourceFolder."/common.lib.php");
@@ -35,11 +51,17 @@ require_once($sourceFolder."/authenticate.lib.php");
 require_once($sourceFolder."/parser.lib.php");
 require_once($sourceFolder."/template.lib.php");
 
+/// parses the server address with actions
+parseAddress();
+
+if(!getTemplate()) {
+///	Exit When Template is Not Found
+	exit(0);
+}
 
 
-echo "Coming Soon :) <br/>";
+//echo "Coming Soon :) <br/>";
 
-print_r($GLOBALS);
 
     
 ?>

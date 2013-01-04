@@ -63,7 +63,7 @@ ini_set('display_errors', 0);
   *	SESSION is stored in core/uploads/session.Give 777 permission to sessions.
   *
 **/
-$sessdir = $sourceFolder."/uploads/sessions";
+$sessdir = $sourceFolder."/sessions";
 if (!is_dir($sessdir)) { mkdir($sessdir, 0777); }
 ini_set('session.save_path', $sessdir);
 if(session_id() == '') session_start();
