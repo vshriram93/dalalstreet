@@ -1,0 +1,41 @@
+##########################GENERAL CONFIGURATION###########################
+Options +FollowSymLinks
+
+#REWRITEENGINE
+RewriteEngine On
+IndexIgnore *
+
+##Disable showing of ~ files and python scripts
+<FilesMatch ".*(~|#|py)$">
+    Order allow,deny
+       Deny from all
+</FilesMatch>
+
+####################END OF GENERAL CONFIGURATION##########################
+
+####################REWRITE RULE CONFIGURATION############################
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+##To put trailing slash after page so links work fine
+###couldn't fix this
+# pragyan/home/a to pragyan/home/a/
+#RewriteCond %{REQUEST_URI} ^([^+?&]+[^/])$
+#RewriteRule ^([^+?]+[^/])$ $1/ [R,L]
+
+# dalalstreet/a/b to dalalstreet/index.php/a/b/ internally (not redirecting)
+RewriteCond %{REQUEST_URI} ^(.*)$
+RewriteRule ^(.*)$ index.php/$1
+
+##Case 1 : no action given
+# dalalstreet/index.php/a/b/ to dalalstreet/index.php?page=/a/b/
+RewriteCond %{REQUEST_URI} ^(.*)index.php([^+]+)$
+RewriteRule ^(.*)index.php([^+]+)$ $1index.php?page=$2 [L]
+
+##Case 2 : action given
+# dalalstreet/index.php/a/b/+view to dalalstreet/index.php?page=/a/b/&action=view
+RewriteCond %{REQUEST_URI} ^(.*)index.php([^+]*)\+([^+]*)$
+RewriteRule ^(.*)index.php([^+]*)\+([^+]*)$  $1index.php?page=$2&action=$3 [L]
+
+####################END OF REWRITE RULE CONFIGURATION#####################

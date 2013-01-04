@@ -29,17 +29,16 @@ require_once($sourceFolder."/common.lib.php");
 connectDB();
 
 
-
-
-
 /// Include all required libraries
 require_once($sourceFolder."/graph.lib.php");
 require_once($sourceFolder."/authenticate.lib.php");
 require_once($sourceFolder."/parser.lib.php");
+require_once($sourceFolder."/template.lib.php");
 
 
 
 echo "Coming Soon :) <br/>";
+
 print_r($GLOBALS);
 
     
