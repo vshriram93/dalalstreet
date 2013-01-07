@@ -25,6 +25,7 @@ if($config !== "DALAL IS READY") {
 	exit(0);
 }
 
+/// Define $userId;
 /// This will be content of questions or login page.
 $CONTENT = "";
 
@@ -36,7 +37,14 @@ $ERRORSTRING = "";
 /// define FOOTER AND HEADER
 $HEADER = "";
 $FOOTER = "";
+$facebook = "";
 
+
+
+/// Get FB Id FOR User to log in
+require_once($sourceFolder."/fbapi.lib.php");
+initFBApi();
+$userId = $facebook->getUser();
 
 /// Contains functions which are common to many tasks and very frequently used.
 require_once($sourceFolder."/common.lib.php");
@@ -44,13 +52,12 @@ require_once($sourceFolder."/common.lib.php");
 /// connect to Database
 connectDB();
 
-
 /// Include all required libraries
 require_once($sourceFolder."/graph.lib.php");
 require_once($sourceFolder."/authenticate.lib.php");
 require_once($sourceFolder."/parser.lib.php");
 require_once($sourceFolder."/template.lib.php");
-require_once($sourceFolder."/fbapi.lib.php");
+require_once($sourceFolder."/content.lib.php");
 
 /// parses the server address with actions
 parseAddress();
@@ -59,7 +66,6 @@ if(!getTemplate()) {
 ///	Exit When Template is Not Found
 	exit(0);
 }
-
 
 //echo "Coming Soon :) <br/>";
 

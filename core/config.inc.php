@@ -31,10 +31,14 @@ define("MYSQL_DATABASE","dalalstreet");
 // connect to FB app
 
 // defining the FB APP ID to connect.
-define("FB_APP_ID","");
+define("FB_APP_ID","192502374226520");
+
+// defining the FB SECRET ID 
+define("FB_APP_SECRET_ID","8ec6e1ce43448572e8b784b25743a3cf");
 
 // Set Default time zone
 date_default_timezone_set('Asia/Calcutta');
+
 
 /*******CONFIGURATION SETTINGS************************/
 /**

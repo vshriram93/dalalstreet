@@ -16,21 +16,25 @@ if(!defined('__DALALSTREET__')) {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>codechecker</title>
+		<title>Dalal Street</title>
 		<meta name="description" content="codechecker"/>
 		<meta name="keywords" content="codechecker"/>
 		<link href="<?php echo $scriptFolder.'/common/bootstrap/css/bootstrap-responsive.min.css'; ?>" type="text/css" rel="stylesheet"/>
 		<link href="<?php echo $scriptFolder.'/common/bootstrap/css/bootstrap.min.css'; ?>" type="text/css" rel="stylesheet"/>
+		
 	</head>
 	<body>
-		<?
+		<div class="fb-login-button" autologoutlink="true" data-width="200" data-max-rows="1"></div>
 		<div id="core-contents">
 			<div id = "core-error">
 			<?php echo $ERRORSTRING; ?>
 			<?php echo $WARNINGSTRING; ?>
 			<?php echo $INFOSTRING; ?>
 			</div>
-			<?php echo $CONTENT; ?>
+			<?php echo $CONTENT;
+				  echo loginForm(); 
+				  echo $userId;
+		     ?>
 
 		</div>
 		sfid

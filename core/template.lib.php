@@ -21,6 +21,7 @@ function getTemplate() {
 	global $INFOSTRING;
 	global $WARNINGSTRING;
 	global $scriptFolder;
+	global $userId;
 	$template = include_once($sourceFolder."/template/main/index.php");
 	if($template == "") {
 		echo "Template Not Found.Contact System Administrator.";
